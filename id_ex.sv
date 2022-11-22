@@ -10,7 +10,7 @@ module id_ex(
     input   logic           RegWriteD, JumpD,BranchD,
     input   logic [1:0]     ResultSrcD,
     input   logic [2:0]     ALUControlD,
-    input   logic [5:0]     RdD
+    input   logic [5:0]     RdD,
     input   logic [31:0]    RD1D,RD2D, 
                             PCD,
                             ImmExtD, 
