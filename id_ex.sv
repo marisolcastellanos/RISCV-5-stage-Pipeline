@@ -19,7 +19,7 @@ module id_ex(
     output  logic           ALUSrcE,
     output  logic           RegWriteE, JumpE,BranchE,
     output  logic [1:0]     ResultSrcE,
-    output  logic [2:0]     ALUControlE)
+    output  logic [2:0]     ALUControlE,
     output  logic [4:0]     RdE,
     output  logic [31:0]    PCE,
                             RD1E,
