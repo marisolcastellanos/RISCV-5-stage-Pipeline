@@ -24,7 +24,7 @@ module ifetch(
     adder       pcadd4(PCF, 32'd4, PCPlus4F);
     
     //Fetch next instruction 
-    Imem imem1(PCF, InstrF);
+    imem imem1(PCF, InstrF);
     
     //Ifetch pipeline register 
     if_id if_id1(clk, reset, InstrF, PCF, PCPlus4F, InstrD, PCD,PCPlus4D); 
