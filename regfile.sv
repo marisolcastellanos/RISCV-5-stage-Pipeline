@@ -1,11 +1,8 @@
-`timescale 1ns / 1ps
-
-
 module regfile(input  logic        clk, 
-               input  logic        RegWriteW, 
-               input  logic [ 4:0] a1, a2, RdW, 
-               input  logic [31:0] ResultW, 
-               output logic [31:0] RD1D, RD2D);
+               input  logic        we3, 
+               input  logic [ 4:0] a1, a2, a3, 
+               input  logic [31:0] wd3, 
+               output logic [31:0] rd1, rd2);
 
   logic [31:0] rf[31:0];
 
@@ -15,11 +12,11 @@ module regfile(input  logic        clk,
   // register 0 hardwired to 0
 
   always_ff @(posedge clk)
-    if(RegWriteW)
-      rf[RdW]<=ResultW;
+    if(we3)
+      rf[a3]<=wd3;
   
-  assign RD1D = (a1!=0)?rf[a1]:0;
-  assign RD2D = (a2!=0)?rf[a2]:0;
+  assign rd1 = (a1!=0)?rf[a1]:0;
+  assign rd2 = (a2!=0)?rf[a2]:0;
 
   
 endmodule
