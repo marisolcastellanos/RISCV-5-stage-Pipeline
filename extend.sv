@@ -1,19 +1,19 @@
 `timescale 1ns / 1ps
 
-module extend(input  logic [31:7] InstrD,
-              input  logic [1:0]  ImmSrcD,
-              output logic [31:0] ImmExtD);
+module extend(input  logic [31:7] instr,
+              input  logic [1:0]  immsrc,
+              output logic [31:0] immext);
  
   always_comb
-    case(ImmSrcD) 
+    case(immsrc) 
                
-      2'b00: ImmExtD = {{20{InstrD[31]}}, InstrD[31:20]};  // I-type 
+      2'b00: immext = {{20{instr[31]}}, instr[31:20]};  // I-type 
                // 
-      2'b01: ImmExtD =  {{20{InstrD[31]}}, InstrD[31:25], InstrD[11:7]};   // S-type (stores)
+      2'b01: immext =  {{20{instr[31]}}, instr[31:25], instr[11:7]};   // S-type (stores)
                // 
-      2'b10: ImmExtD = {{20{InstrD[31]}}, InstrD[7], InstrD[30:25], InstrD[11:8], 1'b0};  // B-type (branches)
+      2'b10: immext = {{20{instr[31]}}, instr[7], instr[30:25], instr[11:8], 1’b0};  // B-type (branches)
                // 
-      2'b11: ImmExtD = {{12{InstrD[31]}}, InstrD[19:12], InstrD[20], InstrD[30:21], 1'b0};   // J-type (jal)
-      default: ImmExtD = 32'bx; // undefined
+      2'b11: immext = {{12{instr[31]}}, instr[19:12], instr[20], instr[30:21], 1’b0};   // J-type (jal)
+      default: immext = 32'bx; // undefined
     endcase             
 endmodule
