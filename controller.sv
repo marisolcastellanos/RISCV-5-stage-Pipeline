@@ -13,9 +13,9 @@ module controller(input  logic [6:0] opD,
   logic [1:0] ALUOp;
   logic       Branch;
 
-  maindec md(op, ResultSrcD, MemWriteD, BranchD,
+  maindec md(opD, ResultSrcD, MemWriteD, BranchD,
              ALUSrcD, RegWriteD, JumpD, ImmSrcD, ALUOp);
-  aludec  ad(op[5], funct3, funct7b5, ALUOp, ALUControlD);
+  aludec  ad(opD[5], funct3D, funct7b5D, ALUOp, ALUControlD);
 
   assign PCSrcE = BranchE & ZeroE | JumpE;
 endmodule
