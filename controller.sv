@@ -1,9 +1,8 @@
 `timescale 1ns / 1ps
 
-module controller(input  logic [6:0] op,
-                  input  logic [2:0] funct3,
-                  input  logic       funct7b5,
-                  input  logic       Zero,
+module controller(input  logic [6:0] opD,
+                  input  logic [2:0] funct3D,
+                  input  logic       funct7b5D,
                   output logic [1:0] ResultSrcD,
                   output logic       MemWriteD,
                   output logic       PCSrc, ALUSrcD,
