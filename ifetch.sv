@@ -12,11 +12,7 @@ module ifetch(
     
     logic [31:0] PCNext, PCF; 
     logic [31:0] InstrF, PCPlus4F;
-    
-    initial begin 
-    PCPlus4F <=0;
-    end 
-    
+
     mux2 #(32)  pcmux(PCPlus4F, PCTargetE, PCSrcE, PCNext);
     
     //Next PC logic
