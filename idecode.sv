@@ -28,7 +28,7 @@ logic [2:0]     ALUControlD;
 extend ext(ImmSrcD,InstrD,ImmExtD); 
     
 //Register File
-regfile rf(InstrD[19:15],InstrD[24:20],RdW,ResultW,RegWriteD,RD1D,RD2D); 
+    regfile rf(clk,InstrD[19:15],InstrD[24:20],RdW,ResultW,RegWriteD,RD1D,RD2D); 
 
 //Control Unit
 controller contr(InstrD[14:12],InstrD[30],InstrD[6:0],MemWriteD,ALUSrcD,RegWriteD,JumpD,BranchD,ResultSrcD,ImmSrcD,ALUControlD);
