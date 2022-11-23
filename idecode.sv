@@ -11,23 +11,27 @@ module idecode(
     output  logic           ALUSrcE,
     output  logic           RegWriteE, JumpE,BranchE,
     output  logic [1:0]     ResultSrcE,
-    output  logic [2:0]     ALUControlE)
+    output  logic [2:0]     ALUControlE,
     output  logic [4:0]     RdE,
     output  logic [31:0]    PCE,
                             RD1E,
                             RD2E,
                             ImmExtE, 
                             PCPlus4E);
-   
+logic [4:0]     RdW,RdD;
+logic [31:0]    RD1D,RD2D,ImmExtD;
+logic [1:0]     ImmSrcD,ResultSrcD;
+logic           MemWriteD,ALUSrcD,JumpD,BranchD;
+logic [2:0]     ALUControlD;
     
 //Extend immediate source 
-extend ext(immsrc,instr,immext); 
+extend ext(ImmSrcD,InstrD,ImmExtD); 
     
 //Register File
-regfile rf(a1,a2,a3,wd3,we3,rd1,rd2); 
+regfile rf(InstrD[19:15],InstrD[24:20],RdW,ResultW,RegWriteD,RD1D,RD2D); 
 
 //Control Unit
-controller contr(funct3D,funct7b5D,opD,MemWriteD,ALUSrcD,RegWriteD,JumpD,BranchD,ResultSrcD,ImmSrcD,ALUControlD);
+controller contr(InstrD[14:12],InstrD[30],InstrD[6:0],MemWriteD,ALUSrcD,RegWriteD,JumpD,BranchD,ResultSrcD,ImmSrcD,ALUControlD);
    
 //Idecode pipeline register
 id_ex id_ex1(clk,reset,MemWriteD,ALUSrcD,RegWriteD,JumpD, BranchD,ResultSrcD,ALUControlD,RdD,RD1D,RD2D,PCD,ImmExtD, PCPlus4D, 
