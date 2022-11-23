@@ -11,11 +11,11 @@ module controller(input  logic [6:0] opD,
                   output logic [2:0] ALUControlD);
 
   logic [1:0] ALUOp;
-  logic       Branch;
+  //logic       Branch;
 
   maindec md(opD, ResultSrcD, MemWriteD, BranchD,
              ALUSrcD, RegWriteD, JumpD, ImmSrcD, ALUOp);
   aludec  ad(opD[5], funct3D, funct7b5D, ALUOp, ALUControlD);
 
-  assign PCSrcE = BranchE & ZeroE | JumpE;
+  //assign PCSrcE = BranchE & ZeroE | JumpE;
 endmodule
