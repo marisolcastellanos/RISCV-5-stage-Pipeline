@@ -2,7 +2,7 @@
 
 module idecode(
     input   logic           clk,reset, 
-    input   logic           RegWriteW,
+    input   logic           RegWriteD,
     input   logic [31:0]    InstrD,
                             PCD, 
                             PCPlus4D, 
