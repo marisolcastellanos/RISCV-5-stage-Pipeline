@@ -36,5 +36,16 @@ logic   reset;
     tb_PCTargetE <= 0;      
    end                    
 
+//~~~~~~~~~~~~~~~Decode Module~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+   logic           tb_RegWriteD;
+   logic [31:0]    tb_ResultW;
+   logic           tb_MemWriteE, tb_ALUSrcE,tb_RegWriteE, tb_JumpE,tb_BranchE;   
+   logic [1:0]     tb_ResultSrcE;
+   logic [2:0]     tb_ALUControlE;
+   logic [4:0]     tb_RdE;
+   logic [31:0]    tb_PCE, tb_RD1E, tb_RD2E,tb_ImmExtE,tb_PCPlus4E;
+   
+   idecode idecode1(clk,reset,tb_RegWriteD, tb_InstrD, tb_PCD, tb_PCPlus4D, tb_ResultW, tb_MemWriteE, tb_ALUSrcE,tb_RegWriteE, tb_JumpE, tb_BranchE, tb_ResultSrcE, tb_ALUControlE,tb_RdE,tb_PCE,tb_RD1E,tb_RD2E,tb_ImmExtE,tb_PCPlus4E);
+   
 endmodule // pipeline
