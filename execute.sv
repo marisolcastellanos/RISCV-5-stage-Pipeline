@@ -9,7 +9,7 @@ module execute(
     input  logic         RegWriteE,MemWriteE,JumpE,BranchE,ALUSrcE,
     input  logic [1:0]   ResultSrcE, 
     input  logic [2:0]   ALUControlE, 
-    output logic [31:0]  ALUResutM,WriteDataM,PCPlus4M, PCTargetE,
+    output logic [31:0]  ALUResultM,WriteDataM,PCPlus4M, PCTargetE,
     output logic [4:0]   RdM, 
     output logic         MemWriteM,RegWriteM, 
     output logic [1:0]   ResultSrcM );
