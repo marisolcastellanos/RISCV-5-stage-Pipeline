@@ -25,6 +25,7 @@ module execute(
     mux2 #(32) srcbmux(RD2E,ImmExtE,ALUSrcE,SrcBE);
     adder      PCaddBRANCH(PCE,ImmExtE,PCTargetE);
     alu        alu(RD1E,SrcBE, ALUControlE,ALUResultE,ZeroE);
+    ex_mem     ex_mem1(clk,reset,RegWriteE,ResultSrcE,MemWriteE, ALUResultE,WriteDataE,RdE,PCPlus4E,RegWriteM,ResultSrcM,MemWriteM, ALUResultM,WriteDataM,RdM,PCPlus4M);
     
     
 endmodule
