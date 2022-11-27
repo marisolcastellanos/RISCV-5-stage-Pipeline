@@ -57,4 +57,13 @@ logic   reset;
    
    execute execute1(clk,reset,tb_RD1E,tb_RD2E,tb_ImmExtE, tb_PCE,tb_PCPlus4E,tb_RdE,tb_RegWriteE, tb_MemWriteE, tb_JumpE,tb_BranchE,tb_ALUSrcE,tb_ResultSrcE,tb_ALUControlE,tb_ALUResultM,tb_WriteDataM,tb_PCPlus4M,tb_PCTargetE,tb_RdM,tb_MemWriteM,tb_RegWriteM,tb_ResultSrcM); 
      
+ //~~~~~~~~~~~~~~~Memory Module~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
+
+    logic           tb_RegWriteW;
+    logic [1:0]     tb_ResultSrcW;
+    logic [4:0]     tb_RdW; 
+    logic [31:0]    tb_ReadDataM,tb_ALUResultW,tb_ReadDataW,tb_PCPlus4W; 
+    
+    memory memory1(clk,reset,tb_RegWriteM,tb_ResultSrcM,tb_RdM,tb_ALUResultM,tb_ReadDataM,tb_PCPlus4M,tb_RegWriteW,tb_ResultSrcW,tb_RdW,tb_ALUResultW,tb_ReadDataW,tb_PCPlus4W); 
+  
 endmodule // pipeline
