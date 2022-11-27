@@ -34,7 +34,7 @@ extend ext(ImmSrcD,InstrD,ImmExtD);
 controller contr(InstrD[14:12],InstrD[30],InstrD[6:0],MemWriteD,ALUSrcD,RegWriteD,JumpD,BranchD,ResultSrcD,ImmSrcD,ALUControlD);
    
 //Idecode pipeline register
-id_ex id_ex1(clk,reset,MemWriteD,ALUSrcD,RegWriteD,JumpD, BranchD,ResultSrcD,ALUControlD,RdD,RD1D,RD2D,PCD,ImmExtD, PCPlus4D, 
+id_ex id_ex1(clk,reset,MemWriteD,ALUSrcD,RegWriteD,JumpD, BranchD,ResultSrcD,ALUControlD,InstrD[11:7],RD1D,RD2D,PCD,ImmExtD, PCPlus4D, 
                  MemWriteE,ALUSrcE,RegWriteE, JumpE,BranchE,ResultSrcE,ALUControlE,RdE,PCE,RD1E,RD2E,ImmExtE,PCPlus4E);
     
     // simulation                             
