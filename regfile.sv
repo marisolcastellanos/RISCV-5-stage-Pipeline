@@ -1,3 +1,6 @@
+`timescale 1ns / 1ps
+
+
 module regfile(input  logic        clk, 
                input  logic        we3, 
                input  logic [ 4:0] a1, a2, a3, 
@@ -10,6 +13,12 @@ module regfile(input  logic        clk,
   // read two ports combinationally (A1/RD1, A2/RD2)
   // write third port on rising edge of clock (A3/WD3/WE3)
   // register 0 hardwired to 0
+  integer i;
+  
+  initial begin 
+  for(i=0;i<32;i++)
+  rf[i]=0;
+  end 
 
   always_ff @(posedge clk)
     if(we3)
@@ -20,3 +29,4 @@ module regfile(input  logic        clk,
 
   
 endmodule
+
