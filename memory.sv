@@ -5,16 +5,18 @@ module memory(
     input   logic           clk,reset,
     input   logic           RegWriteM,
     input   logic [1:0]     ResultSrcM, 
-    input   logic           MemWriteM,
-    input   logic [31:0]    ALUResultM,
-    input   logic [31:0]    WriteDataM, 
     input   logic [4:0]     RdM, 
+    input   logic [31:0]    ALUResultM,
     input   logic [31:0]    PCPlus4M,
+    input   logic           MemWriteM,
+    input   logic [31:0]    WriteDataM, 
+    
+    
     output  logic           RegWriteW,
     output  logic [1:0]     ResultSrcW, 
+    output  logic [4:0]     RdW, 
     output  logic [31:0]    ALUResultW,
     output  logic [31:0]    ReadDataW,
-    output  logic [4:0]     RdW, 
     output  logic [31:0]    PCPlus4W);
     
     logic [31:0] ReadDataM;
